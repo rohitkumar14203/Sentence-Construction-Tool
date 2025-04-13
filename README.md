@@ -60,10 +60,8 @@ npm start
 
 ````bash
 npm install -g json-server
-```
 
-▶️ Start the Server
+
 ## To start the mock backend server:
-```bash
 npm run server
 ````
