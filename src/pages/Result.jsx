@@ -30,7 +30,7 @@ const ResultPage = () => {
       : 0;
 
   return (
-    <div className="min-h-screen bg-white text-gray-800 relative">
+    <div className="min-h-screen bg-[#F8F8F8] text-gray-800 relative">
       <header className="w-full text-center py-4 text-[18px] backdrop-blur-[50px] shadow-[0px_2px_36px_0px_#00000014] bg-[#F8F8F8BF] text-[#414343] font-[500] relative">
         <ArrowLeft
           className="cursor-pointer absolute left-6 top-1/2 -translate-y-1/2"
