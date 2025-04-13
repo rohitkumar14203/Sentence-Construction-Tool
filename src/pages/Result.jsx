@@ -49,14 +49,14 @@ const ResultPage = () => {
           <ScoreLoader score={percentageScore} />
 
           {score > 0 ? (
-            <p className="text-center mt-6 max-w-xl text-gray-600">
+            <p className="text-center mt-6 max-w-xl text-[18px] font-[400] text-[#2A2D2D]">
               While you correctly formed several sentences, there are a couple
               of areas where improvement is needed. Pay close attention to
               sentence structure and word placement to ensure clarity and
               correctness. Review your responses below for more details.
             </p>
           ) : (
-            <p className="text-center mt-6 max-w-xl text-red-500">
+            <p className="text-center  text-[18px] font-[400] mt-6 max-w-xl text-red-500">
               Don’t worry about the score! Every expert was once a beginner.
               Keep practicing and you'll get better with every try!
             </p>
@@ -64,7 +64,7 @@ const ResultPage = () => {
 
           <button
             onClick={handleDashboard}
-            className="mt-6 border border-purple-600 text-purple-600 px-5 py-2 rounded-lg"
+            className="mt-6 border text-[16px] border-[#453FE1] text-[#453FE1] px-5 py-2 rounded-lg"
           >
             Go to Dashboard
           </button>

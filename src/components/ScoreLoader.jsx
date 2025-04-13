@@ -9,12 +9,11 @@ const ScoreLoader = ({ score = 0 }) => {
   const strokeDashoffset =
     score === 100 ? 0 : circumference - (score / 100) * circumference;
 
-  
   const getColor = () => {
-    if (score === 0) return "#DC2626"; 
-    if (score >= 70) return "#3A913F"; 
-    if (score < 30) return "#F97316"; 
-    return "#EAB308"; 
+    if (score === 0) return "#DC2626";
+    if (score >= 70) return "#3A913F";
+    if (score < 30) return "#F97316";
+    return "#EAB308";
   };
 
   // Tailwind class for text
@@ -35,7 +34,6 @@ const ScoreLoader = ({ score = 0 }) => {
         width={radius * 2}
         className="transform -rotate-90"
       >
-   
         <circle
           stroke="#E5E7EB"
           fill="transparent"
@@ -44,7 +42,7 @@ const ScoreLoader = ({ score = 0 }) => {
           cx={radius}
           cy={radius}
         />
-   \
+        \
         <circle
           stroke={color}
           fill="transparent"
@@ -63,7 +61,9 @@ const ScoreLoader = ({ score = 0 }) => {
 
       <div className="absolute flex flex-col items-center justify-center">
         <span className={`text-3xl font-bold ${textColorClass}`}>{score}</span>
-        <span className={`text-sm ${textColorClass}`}>Overall Score</span>
+        <span className={`text-[14px] font-medium ${textColorClass}`}>
+          Overall Score
+        </span>
       </div>
     </div>
   );
