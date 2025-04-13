@@ -20,7 +20,7 @@ A React-based quiz application where users complete sentence construction questi
 
 ## 📸 Screenshots
 
-### 🏠 Home Page  
+### 🏠 Home Page
 
 ![Home Page](./src/assets/ss/1.png)
 
@@ -47,21 +47,23 @@ A React-based quiz application where users complete sentence construction questi
 
 ## 🚧 How to Run Locally
 
-### Frontend:
+▶️ Frontend:
 
-```bash
+````bash
 git clone https://github.com/your-username/Sentence-Construction-Tool.git
 cd Sentence-Construction-Tool
 npm install
 npm start
 
-### Backend:
+
+🗄️ Backend:
 
 ```bash
 npm install -g json-server
-### ▶️ Start the Server
 
-To start the mock backend server:
+▶️ Start the Server
 
+- To start the mock backend server:
 ```bash
 npm run server
+
