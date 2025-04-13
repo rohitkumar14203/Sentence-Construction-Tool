@@ -19,7 +19,7 @@ const QuizPage = () => {
     const fetchQuestions = async () => {
       try {
         // For development  http://localhost:8000/data
-        const response = await fetch(api || "http://localhost:8000/data");
+        const response = await fetch(api);
 
         const data = await response.json();
         // console.log(api);
@@ -70,7 +70,6 @@ const QuizPage = () => {
   };
 
   const goToNextQuestion = () => {
-    
     if (selectedOptions.length > 0 && !selectedOptions.includes(null)) {
       setUserAnswers((prev) => ({
         ...prev,
@@ -83,7 +82,6 @@ const QuizPage = () => {
       setSelectedOptions([]);
       setAvailableOptions(questions[currentQuestionIndex + 1]?.options);
     } else {
-     
       const score = calculateScore();
       navigate("/result", {
         state: {
@@ -98,11 +96,8 @@ const QuizPage = () => {
     }
   };
 
- 
-
   const calculateScore = () => {
     let correctCount = 0;
-
 
     const allAnswers = {
       ...userAnswers,
