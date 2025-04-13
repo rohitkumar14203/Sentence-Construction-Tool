@@ -148,8 +148,15 @@ const QuizPage = () => {
             />
           </div>
           <button
-            onClick={handleQuit}
-            className="px-4 py-1 border border-[#DFE3E3] text-[#414343] rounded-md"
+            onClick={() => {
+              const confirmQuit = window.confirm(
+                "Are you sure you want to quit?"
+              );
+              if (confirmQuit) {
+                handleQuit();
+              }
+            }}
+            className="px-4 py-1 cursor-pointer border border-[#DFE3E3] text-[#414343] rounded-md"
           >
             Quit
           </button>
@@ -200,7 +207,7 @@ const QuizPage = () => {
               key={index}
               onClick={() => handleOptionClick(option)}
               disabled={selectedOptions.includes(option)}
-              className={`px-5 py-2 border font-medium rounded-md text-[16px] ${
+              className={`px-5 py-2 border font-medium cursor-pointer rounded-md text-[16px] ${
                 selectedOptions.includes(option)
                   ? "bg-gray-200 text-[#414343]"
                   : "bg-white hover:bg-gray-100"
@@ -220,7 +227,7 @@ const QuizPage = () => {
               selectedOptions.includes(null) ||
               selectedOptions.length === 0
             }
-            className={`w-[64px] h-[64px] px-[2px] py-[5px] flex items-center justify-center border border-[#DFE3E3] rounded-lg ${
+            className={`w-[64px] h-[64px] px-[2px] py-[5px] cursor-pointer flex items-center justify-center border border-[#DFE3E3] rounded-lg ${
               selectedOptions.length === questionParts.length - 1 &&
               !selectedOptions.includes(null) &&
               selectedOptions.length !== 0
