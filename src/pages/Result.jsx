@@ -30,7 +30,7 @@ const ResultPage = () => {
       : 0;
 
   return (
-    <div className="min-h-screen bg-[#F8F8F8] text-gray-800 relative">
+    <div className="min-h-screen bg-white text-gray-800 relative">
       <header className="w-full text-center py-4 text-[18px] backdrop-blur-[50px] shadow-[0px_2px_36px_0px_#00000014] bg-[#F8F8F8BF] text-[#414343] font-[500] relative">
         <ArrowLeft
           className="cursor-pointer absolute left-6 top-1/2 -translate-y-1/2"
@@ -75,8 +75,8 @@ const ResultPage = () => {
         </div>
 
         {showDetails && (
-          <div className="mt-10 flex justify-center">
-            <div className="w-full max-w-4xl space-y-6">
+          <div className="mt-10  flex justify-center">
+            <div className="w-full max-h-[300px] max-w-4xl space-y-6">
               {questions &&
                 questions.map((q, idx) => {
                   const user = userAnswers?.[q.questionId] || [];
@@ -87,39 +87,52 @@ const ResultPage = () => {
                   return (
                     <div
                       key={q.questionId}
-                      className="p-4 rounded-xl shadow-sm border"
+                      className="rounded-xl overflow-hidden"
                       style={{
-                        backgroundColor: isCorrect ? "#f0f9f0" : "#fff0f0",
+                        boxShadow: "0px 4px 70px 0px #42A94C1A",
                       }}
                     >
-                      <div className="flex justify-between items-center">
-                        <p className="text-xs text-gray-500">Prompt</p>
-                        <p className="text-xs text-gray-500">{idx + 1}/10</p>
+                      {/* Top White Box */}
+                      <div className="bg-white p-5">
+                        <div className="flex justify-between items-center mb-2">
+                          <p className="text-sm text-[#616464] py-[2px] px-[4px] rounded-[8px] bg-[#F0F0F0] font-medium">
+                            Prompt
+                          </p>
+                          <p className="text-sm text-[#616464] font-medium">
+                            {idx + 1}/10
+                          </p>
+                        </div>
+                        <p className="text-[18px] text-[#414343]">
+                          {q.question.replace(/_____________/g, "_____")}
+                        </p>
                       </div>
 
-                      <p className="mb-2 text-sm text-gray-800">
-                        <span className="font-medium">Question:</span>{" "}
-                        {q.question.replace(/_____________/g, "_____")}
-                      </p>
-
-                      <p className="mt-3 text-sm font-medium mb-[5px]">
-                        Your Response :
-                        <span
-                          className={
+                      {/* Bottom Green or Red Box */}
+                      <div
+                        className={`p-5 ${
+                          isCorrect ? "bg-[#f0f9f0]" : "bg-[#fff0f0]"
+                        } transition-colors`}
+                      >
+                        <p className="text-sm font-medium text-[#616464] mb-1">
+                          Your Response:
+                          <span
+                            className={
+                              isCorrect
+                                ? "text-green-600 ml-1"
+                                : "text-red-600 ml-1"
+                            }
+                          >
+                            {isCorrect ? "Correct" : "Incorrect"}
+                          </span>
+                        </p>
+                        <p className="text-[18px] font-medium text-[#2A2D2D]">
+                          {fillSentence(
+                            q.question,
+                            user,
                             isCorrect ? "text-green-600" : "text-red-600"
-                          }
-                        >
-                          {isCorrect ? " Correct" : " Incorrect"}
-                        </span>
-                      </p>
-
-                      <p className="text-sm text-gray-700">
-                        {fillSentence(
-                          q.question,
-                          user,
-                          isCorrect ? "text-green-600" : "text-red-600"
-                        )}
-                      </p>
+                          )}
+                        </p>
+                      </div>
                     </div>
                   );
                 })}
