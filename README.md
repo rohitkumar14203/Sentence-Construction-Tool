@@ -1,4 +1,4 @@
-# 📝 Sentence Construction Tool
+# 📝 Sentence Constructor
 
 A React-based quiz application where users complete sentence construction questions by selecting the correct words in the correct order. It includes a timer, score calculation, responsive design, and answer review at the end.
 
@@ -32,7 +32,7 @@ A React-based quiz application where users complete sentence construction questi
 
 ![Result Page](./src/assets/ss/3.png)
 
-### 💬 Feedback Page
+### 💬 Feedback View
 
 ![Feedback Page](./src/assets/ss/4.png)
 
