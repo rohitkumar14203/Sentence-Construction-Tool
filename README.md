@@ -11,7 +11,7 @@ A React-based quiz application where users complete sentence construction questi
 - 🔁 Auto-navigation after timer ends
 - 🔍 Word selection and unselection support
 - ✅ Final result with correctness feedback
-- 📊 Score loader animation
+- 📊 Score loader
 - 🔄 Fully responsive UI
 - 🗂 Modular file structure
 - 🌐 Backend API with JSON Server
