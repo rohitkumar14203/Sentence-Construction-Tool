@@ -50,8 +50,8 @@ A React-based quiz application where users complete sentence construction questi
 ### ▶️ Frontend
 
 ```bash
-git clone https://github.com/your-username/Sentence-Construction-Tool.git
-cd Sentence-Construction-Tool
+git clone https://github.com/your-username/Sentence-Constructor.git
+cd Sentence-Constructor
 npm install
 npm run dev
 ```
