@@ -60,8 +60,8 @@ const ScoreLoader = ({ score = 0 }) => {
       </svg>
 
       <div className="absolute flex flex-col items-center justify-center">
-        <span className={`text-3xl font-bold ${textColorClass}`}>{score}</span>
-        <span className={`text-[14px] font-medium ${textColorClass}`}>
+        <span className={`text-4xl font-bold ${textColorClass}`}>{score}</span>
+        <span className={`text-[13px] font-medium ${textColorClass}`}>
           Overall Score
         </span>
       </div>

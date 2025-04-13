@@ -1,12 +1,67 @@
-# React + Vite
+# 📝 Sentence Construction Tool
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based quiz application where users complete sentence construction questions by selecting the correct words in the correct order. It includes a timer, score calculation, responsive design, and answer review at the end.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 📝 Interactive sentence completion questions
+- ⏱️ 30-second timer for each question
+- 🔁 Auto-navigation after timer ends
+- 🔍 Word selection and unselection support
+- ✅ Final result with correctness feedback
+- 📊 Score loader animation
+- 🔄 Fully responsive UI
+- 🗂 Modular file structure
+- 🌐 Backend API with JSON Server
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📸 Screenshots
+
+### 🏠 Home Page  
+
+![Home Page](./src/assets/ss/1.png)
+
+### 🧩 Quiz Page
+
+![Quiz Page](./src/assets/ss/2.png)
+
+### 🏁 Result Page
+
+![Result Page](./src/assets/ss/3.png)
+
+### 💬 Feedback Page
+
+![Feedback Page](./src/assets/ss/4.png)
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React.js, TailwindCSS, React Router
+- **State Management:** useState, useEffect
+- **Backend:** JSON Server (hosted on Render)
+- **Deployment:** Frontend on Vercel, Backend on Render
+
+## 🚧 How to Run Locally
+
+### Frontend:
+
+```bash
+git clone https://github.com/your-username/Sentence-Construction-Tool.git
+cd Sentence-Construction-Tool
+npm install
+npm start
+
+### Backend:
+
+```bash
+npm install -g json-server
+### ▶️ Start the Server
+
+To start the mock backend server:
+
+```bash
+npm run server
