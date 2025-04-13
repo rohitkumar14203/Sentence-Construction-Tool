@@ -2,22 +2,31 @@ import React, { useState, useEffect } from "react";
 import Timer from "../components/Timer";
 import { useNavigate } from "react-router-dom";
 import nxtArrow from "../assets/nxtArrow.png";
+import Loader from "../components/Loader";
 
 const QuizPage = () => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOptions, setSelectedOptions] = useState([]);
-  const [availableOptions, setAvailableOptions] = useState([]); // Track available options
+  const [availableOptions, setAvailableOptions] = useState([]);
+  const [userAnswers, setUserAnswers] = useState({});
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+
+  const api = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const response = await fetch("http://localhost:8000/data");
+        // For development  http://localhost:8000/data
+        const response = await fetch(api || "http://localhost:8000/data");
+
         const data = await response.json();
+        // console.log(api);
+        // console.log(data);
+
         setQuestions(data?.questions);
-        setAvailableOptions(data?.questions[0]?.options); // Set available options for the first question
+        setAvailableOptions(data?.questions[0]?.options);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching questions:", error);
@@ -61,13 +70,53 @@ const QuizPage = () => {
   };
 
   const goToNextQuestion = () => {
+    
+    if (selectedOptions.length > 0 && !selectedOptions.includes(null)) {
+      setUserAnswers((prev) => ({
+        ...prev,
+        [currentQuestion.questionId]: [...selectedOptions],
+      }));
+    }
+
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setSelectedOptions([]);
-      setAvailableOptions(questions[currentQuestionIndex + 1]?.options); // Update available options for the next question
+      setAvailableOptions(questions[currentQuestionIndex + 1]?.options);
     } else {
-      navigate("/result");
+     
+      const score = calculateScore();
+      navigate("/result", {
+        state: {
+          score,
+          questions,
+          userAnswers: {
+            ...userAnswers,
+            [currentQuestion.questionId]: [...selectedOptions],
+          },
+        },
+      });
     }
+  };
+
+ 
+
+  const calculateScore = () => {
+    let correctCount = 0;
+
+
+    const allAnswers = {
+      ...userAnswers,
+      [currentQuestion.questionId]: [...selectedOptions],
+    };
+
+    questions.forEach((q) => {
+      const userAnswer = allAnswers[q.questionId] || [];
+      if (JSON.stringify(userAnswer) === JSON.stringify(q.correctAnswer)) {
+        correctCount++;
+      }
+    });
+
+    return correctCount;
   };
 
   const handleTimeEnd = () => {
@@ -77,6 +126,8 @@ const QuizPage = () => {
   const handleQuit = () => {
     navigate("/");
   };
+
+  if (loading) return <Loader />;
 
   if (!questions || questions.length === 0) {
     return (
