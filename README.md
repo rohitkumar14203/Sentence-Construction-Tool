@@ -53,7 +53,7 @@ A React-based quiz application where users complete sentence construction questi
 git clone https://github.com/your-username/Sentence-Construction-Tool.git
 cd Sentence-Construction-Tool
 npm install
-npm start
+npm run dev
 ```
 
 ### 🗄️ Backend
